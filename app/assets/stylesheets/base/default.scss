@@ -32,3 +32,31 @@ a:hover, a:active, a:link, a:visited {
 .control-label {
 	display: none;
 }
+
+.btn-mha {
+  color: #ffffff;
+  background-color: #60a3bc;
+  border: 1.5px solid #60a3bc !important;
+  }
+
+  .btn-mha:hover {
+  color: #000000;
+  background-color: #ffffff;
+  border: 1.5px solid #60a3bc !important;
+  }
+	
+.btn-gray {
+  color: #ffffff;
+  background-color: #999999;
+  border: 1.5px solid #999999 !important;
+  }
+
+  .btn-gray:hover {
+  color: #1a1a1a;
+  background-color: #ffffff;
+  border: 1.5px solid #999999 !important;
+  }
+
+.datepicker.dropdown-menu {
+  background-color:#FFF !important;
+}
