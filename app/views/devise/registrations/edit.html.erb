@@ -40,13 +40,13 @@
                                 autocomplete: 'current-password',
                                 class: 'form-control' %>
 
-          <%= f.submit 'Tallenna', class: 'btn sign-up-button' %>
+          <%= f.submit 'Tallenna', class: 'btn btn-green' %>
 
         <% end %>
 
         <h3>Poistetaanko tunnus ?</h3>
 
-        <%= button_to "Poista",  registration_path(resource_name), data: { confirm: "Oletko varma?" },class: 'btn sign-up-button',  method: :delete %>
+        <%= button_to "Poista",  registration_path(resource_name), data: { confirm: "Oletko varma?" },class: 'btn btn-green',  method: :delete %>
          <br /><br />
         <%= link_to "Takaisin", :back %>
 

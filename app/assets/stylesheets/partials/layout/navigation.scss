@@ -23,7 +23,10 @@ nav {
 	.col-sm-5, .col-sm-7 {
 		padding: 0;
 	}
-	
+  
+  .custom-nav:hover {
+    font-size: 115%;
+  }
 }
 
 .pc-menu {
@@ -43,6 +46,15 @@ nav {
 		display: block;
 		padding: 10px 0px 10px 25px !important;
 	}
+  
+  .custom-nav {
+    color: white !important;
+  }
+
+  .custom-nav:hover {
+    font-size: 115%;
+    color: red !important;
+  }
 
 	a:hover {
 		background: white !important;
