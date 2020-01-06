@@ -72,3 +72,10 @@ a:hover, a:active, a:link, a:visited {
 .datepicker.dropdown-menu {
   background-color:#FFF !important;
 }
+
+
+.verticalhorizontal {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
