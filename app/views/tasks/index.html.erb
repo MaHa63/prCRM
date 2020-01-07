@@ -1,0 +1,49 @@
+<div class="container">
+
+	<% if @tasks.blank? %>
+		<h3>Järjestelmään ei ole talletettu taskeja.</h3>
+	<% else %>
+		<br /><br />
+		<h3>Talletetut taskit</h3>
+		<table class="table table-striped" data-sort-name="name" data-sort-order="desc">
+			<thead>
+				<tr>
+					<th data-field="id", style="width: 5%">Numero</th>
+					<th data-field="description", style="width: 25% ">Kuvaus</th>
+					<th data-field="type">Tyyppi</th>
+					<th data-field="state">Tila</th>
+					<th data-field="user_id">Vastuuhenkilö</th>
+					<th data-field="account_id">Yritys</th>
+					<th data-field="open">Avattu</th>
+					<th data-field="closed">Suljettu</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @tasks.each do |task| %>
+					<tr>
+					<td><u><%= link_to task.id, { :action => 'edit', :id => task.id } %></u></td>	
+					<td><%= task.description %></td> 
+					<td><%= task.reason_as_text %></td>
+					<td><%= task.state_as_text %></td>
+					<td><%= task.user.whole_name %></td>
+					<td><%= task.account.name %></td>
+					<td><%= task.open.strftime("%d-%m-%Y %H:%M") %></td>
+					<td><%= task.closed_nil_out %></td>
+					<div>
+						<td>
+						<!--<%= link_to 'Poista', {:action => 'delete', :id => task.id } %> -->
+						<%= button_to "Poista", {:controller => :tasks, :action => 'delete', :id => task.id }, :method => :delete, class: 'btn btn-gray btn-xs', data: { confirm: "Oletko varma tietueen poistamisesta ?"} %>
+						</td>
+					</div>
+
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	<% end %>
+  	<!--<p><%= link_to "Uusi taski", {:action => 'new'}, :method => :get %></p> -->
+  	<%= button_to "Uusi taski", {:controller => :tasks, :action => 'new'}, :method => :get, class: 'btn btn-gray' %>
+
+  	<br />
+  	<br />
+</div>

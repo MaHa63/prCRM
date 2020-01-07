@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-sm-offset-4 text-center">
+    	<h1>Muokataan myyntiprojektia</h1>
+			
+
+			<%= bootstrap_form_for @project, :url => {action: "update", :id => @project } do |f| %>
+
+				<%= f.text_field :name, class: 'form-control', label: 'Nimi' %>
+
+      	<%= f.text_area  :description,
+        									cols: "43",
+        									rows: "2",
+                          label: 'Kuvaus',
+                          class: 'form-control' %>
+
+        <%= f.select :phase, [["Liidi", "11"],  ["Kontakti", "2"],["Lähetä tarjous", "3"], ["Tarjous lähetetty", "4"], 
+          ["Tarjoukseen vastattu", "5"], ["Neuvottelu", "6"], ["Kauppa", "7"], ["Hävitty", "8"], ["Sulje liidi", "12"]], 
+          {prompt: "Valitse", label: "Vaihe"} %>
+
+       
+
+          <%= f.text_field :schedule, 'data-behaviour' => 'datepicker', :value => (f.object.schedule.strftime('%d-%m-%Y') if f.object.schedule), label: 'Aikataulu', class: 'form-control'   %>
+
+          <%= f.text_field  :target_sales,
+                            label: 'Myyntitavoite',
+                            class: 'form-control' %>
+
+          <%= f.text_field  :realized_sales,
+                            label: 'Toteutunut myynti',
+                            class: 'form-control' %>
+        
+
+        <%= f.collection_select 	:user_id, 
+        													User.all, 
+        													:id, 
+																	:whole_name, 
+																	label: 'Vastuuhenkilö', 
+																	prompt: "Valitse" %>
+			
+				<%= f.collection_select 	:account_id, 
+																	Account.all, 
+																	:id, 
+																	:name, 
+																	label: 'Yritys', 
+																	prompt: "Valitse" %>
+
+				<%= f.collection_select 	:contact_id, 
+																	Contact.all, 
+																	:id, 
+																	:whole_name, 
+																	label: 'Yhteyshenkilö', 
+																	prompt: "Valitse" %>
+
+				<br />
+      	<%= f.submit 'Tallenna' , class: 'btn btn-mha' %>
+
+      <% end %>
+      <br />
+      <% if @project.phase > 10 %> 
+        <%= button_to 'Takaisin', { :controller => :projects, :action => 'leads' }, :method => :get, class: 'btn btn-gray' %>
+      <% else %>
+        <%= button_to 'Takaisin', { :controller => :projects, :action => 'opportunities' }, :method => :get, class: 'btn btn-gray' %>
+      <% end %>
+      <br /><br /><br />
+		</div>
+	</div>
+</div>

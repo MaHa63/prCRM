@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-sm-offset-4 text-center">
+    	<h1>Muokataan kontaktia</h1>
+			
+
+			<%= bootstrap_form_for @contact, :url => {action: "update", :id => @contact } do |f| %>
+
+				<%= f.text_field :first_name, class: 'form-control', label: 'Etunimi' %>
+
+				<%= f.text_field :last_name, class: 'form-control', label: 'Sukunimi' %>
+
+				<%= f.text_field :position, class: 'form-control', label: 'Asema' %>
+      	
+				<%= f.text_field :email, class: 'form-control', label: 'Sähköposti' %>
+
+				<%= f.text_field :phone_nbr, class: 'form-control', label: 'Puhelinnumero' %>
+			
+				<%= f.collection_select :account_id, Account.all, :id, 
+					:name, label: 'Yritys' %>
+
+				<br />
+      	<%= f.submit 'Tallenna' , class: 'btn btn-mha' %>
+
+      <% end %>
+      <br />
+      <%= button_to 'Takaisin', { :controller => :contacts, :action => 'index' }, :method => :get, class: 'btn btn-gray' %>
+      <br /><br />
+	</div>
+	</div>
+</div>

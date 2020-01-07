@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-sm-offset-4 text-center">
+    	<h1>Muokataan taskia</h1>
+			
+
+			<%= bootstrap_form_for @task, :url => {action: "update", :id => @task } do |f| %>
+
+
+      	<%= f.text_area  :description,
+        									cols: "43",
+        									rows: "2",
+                          label: 'Kuvaus',
+                          class: 'form-control' %>
+
+
+      	<%= f.select  :reason, [["Soitto", "1"], ["Email", "2"], ["Palaveri", "3"]], {label: "Tyyppi"}    %> 
+
+       	<%= f.select  :state, [["Auki", "1"], ["Hoidettu", "2"]], { label: "Tila"}, {:action => "update_closed"}    %> 
+
+        <%= f.collection_select :user_id, User.all, :id, 
+					:whole_name, label: 'Vastuuhenkilö' %>
+			
+				<%= f.collection_select :account_id, Account.all, :id, 
+					:name, label: 'Yritys' %>
+
+				<%= f.text_field :open_as_text, class: 'form-control', label: 'Avattu', readonly: true %>
+
+				<%= f.text_field :closed_nil_out, class: 'form-control', label: 'Suljettu', readonly: true  %>
+
+				<br />
+      	<%= f.submit 'Tallenna' , class: 'btn btn-mha' %>
+
+      <% end %>
+      <br />
+      <%= button_to 'Takaisin', { :controller => :tasks, :action => 'index' }, :method => :get, class: 'btn btn-gray' %>
+      <br /><br />
+		</div>
+	</div>
+</div>

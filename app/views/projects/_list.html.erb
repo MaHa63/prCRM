@@ -1,0 +1,32 @@
+<table class="table table-striped" data-sort-name="name" data-sort-order="desc">
+	<thead>
+		<tr>
+			<th data-field="id", style="width: 4%">Nro</th>
+			<th data-field="name", style="width: 15%" >Nimi</th>
+			<th data-field="description", style="width: 30% ">Kuvaus</th>
+			<th data-field="phase">Vaihe</th>
+			<th data-field="account_id">Yritys</th>
+			<th data-field="target_sales">Myyntitavoite</th>
+			<th data-field="schedule">Aikataulu</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @projects.each do |project| %>
+			<tr>
+			<td><u><%= link_to project.id, { :action => 'edit', :id => project.id } %></u></td>	
+			<td><%= project.name %></td>
+			<td><%= project.description %></td> 
+			<td><%= project.phase_as_text %></td>
+			<td><%= project.account.name %></td>
+			<td><%= project.target_sales %></td>
+			<td><%= project.schedule_nil_out %></td>
+			<div>
+				<td>
+				<%= button_to "Poista", {:controller => :projects, :action => 'delete', :id => project.id }, :method => :delete, class: 'btn btn-gray btn-xs', data: { confirm: "Oletko varma tietueen poistamisesta ?"} %>
+				</td>
+			</div>
+
+			</tr>
+		<% end %>
+	</tbody>
+</table>

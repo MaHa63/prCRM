@@ -1,0 +1,20 @@
+<div class="container">
+	<h4><%= @task.description %></h4>
+	<%= form_for :task do |f| %>
+    <div class="row">
+			<div class="col-md6">
+          <%=f.label "Tyyppi"%>
+          <%=f.text_field :reason_as_text %>
+        </div>
+
+        <div class="col-md6">
+          <%=f.label "Tila" %>
+          <%=f.text_field :state_as_text %>
+        </div>
+      </div>
+
+			<%= link_to 'Takaisin', {:action => 'index' } %> 
+
+		</div>
+	<% end %>>
+</div>

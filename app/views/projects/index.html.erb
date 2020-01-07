@@ -1,0 +1,16 @@
+<div class="container">
+
+	<% if @projects.blank? %>
+		<h3>Järjestelmään ei ole talletettu liidejä/myynticaseja.</h3>
+	<% else %>
+		<br /><br />
+		<h3>Talletetut projektit</h3>
+		<%= render 'list' %>
+		
+	<% end %>
+  	<!--<p><%= link_to "Uusi taski", {:action => 'new'}, :method => :get %></p> -->
+  	<%= button_to "Uusi projekti", {:controller => :projects, :action => 'new'}, :method => :get, class: 'btn btn-gray' %>
+
+  	<br />
+  	<br />
+</div>

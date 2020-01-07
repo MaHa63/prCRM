@@ -1,0 +1,45 @@
+<div class="container">
+
+	<% if @contacts.blank? %>
+		<h3>Järjestelmään ei ole talletettu kontakteja.</h3>
+	<% else %>
+		<br /><br />
+		<h3>Talletetut kontaktit </h3>
+		<table class="table table-striped" data-sort-name="name" data-sort-order="desc">
+			<thead>
+				<tr>
+					<th data-field="whole_name">Nimi</th>
+					<th data-field="position">Asema</th>
+					<th data-field="email">Sähköposti</th>
+					<th data-field="phone_nbr">Puhelin</th>
+					<th data-field="account_id">Yritys</th>
+					<th data-field="btn1", style="width: 5% "></th>
+					<th data-field="btn2", style="width: 5% "></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @contacts.each do |contact| %>
+					<tr>	
+					<td><%= contact.whole_name %></td>
+					<td><%= contact.position %></td>
+					<td><%= contact.email %></td>
+					<td><%= contact.phone_nbr %></td>
+					<td><%= contact.account.name %></td>
+						<td>
+						<%= button_to "Muokkaa", {:action => 'edit', :id => contact.id} ,  :method => :post, class: 'btn btn-gray btn-xs' %> 
+						</td>
+						<td>
+						<%= button_to "Poista", {:controller => :contacts, :action => 'delete', :id => contact.id }, :method => :delete, class: 'btn btn-gray btn-xs', data: { confirm: "Oletko varma tietueen poistamisesta ?"} %>
+						</td>
+
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	<% end %>
+  	<!--<p><%= link_to "Uusi kontakti", {:action => 'new'}, :method => :get %></p> -->
+  	<%= button_to "Uusi kontakti", {:controller => :contacts, :action => 'new'}, :method => :get, class: 'btn btn-gray' %>
+
+  	<br />
+  	<br />
+</div>

@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4 text-center">
+
+			<h1>Lisää uusi yritys</h1>
+
+
+			
+      <%= bootstrap_form_for( :accounts,
+                              url: {action: "create"}) do |f| %>
+
+
+        <%= f.text_field  :name,
+                          label: 'Nimi',
+                          class: 'form-control' %>
+
+        <%= f.text_field  :street,
+                          label: 'Katuosoite',
+                          class: 'form-control' %>
+
+        <%= f.text_field  :zip_code,
+                          label: 'Postinumero',
+                          class: 'form-control' %>
+
+        <%= f.text_field  :city,
+                          label: 'Postitoimipaikka',
+                          class: 'form-control' %>
+       
+
+        <%= f.collection_select :user_id, User.all, :id, 
+					:whole_name, label: 'Vastuuhenkilö', prompt: true %>
+			
+			 	
+        <%= f.submit 'Tallenna', class: 'btn btn-mha' %>	
+			<% end %>
+
+			<br />
+      <%= button_to 'Takaisin', { :controller => :accounts, :action => 'index' }, :method => :get, class: 'btn btn-gray' %>
+
+		</div>
+	</div>
+</div>

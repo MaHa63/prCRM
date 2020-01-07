@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4 text-center">
+
+			<h1>Lisää uusi kontakti</h1>
+
+      <%= bootstrap_form_for( :contacts,
+                              url: {action: "create"}) do |f| %>
+
+
+        <%= f.text_field  :first_name,
+                          label: 'Etunimi',
+                          class: 'form-control' %>
+
+        <%= f.text_field  :last_name,
+                          label: 'Sukunimi',
+                          class: 'form-control' %>
+
+        <%= f.text_field  :position,
+                          label: 'Asema',
+                          class: 'form-control' %>                
+
+        <%= f.text_field  :email,
+                          label: 'Sähköposti',
+                          class: 'form-control' %>
+
+        <%= f.text_field  :phone_nbr,
+                          label: 'Puhelinnumero',
+                          class: 'form-control' %>
+
+        <%= f.collection_select :account_id, Account.all, :id, 
+					:name, label: 'Yritys', prompt: "Valitse" %>			
+			 	
+        <%= f.submit 'Tallenna', class: 'btn login-button' %>	
+			<% end %>
+
+			<%= link_to 'Takaisin', {:action => 'index'} %>
+
+		</div>
+	</div>
+</div>
