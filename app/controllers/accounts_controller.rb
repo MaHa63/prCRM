@@ -49,7 +49,7 @@ class AccountsController < ApplicationController
 		@account = Account.find(params[:id])
 
 		if @account.update_attributes(account_param)
-			redirect_to :action => 'show', :id => @account
+			redirect_to :action => 'index', :id => @account
 		else
 			@users = User.all
 			render :action => 'edit'
