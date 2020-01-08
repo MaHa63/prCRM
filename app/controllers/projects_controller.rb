@@ -10,6 +10,10 @@ class ProjectsController < ApplicationController
   def opportunities
   	@projects = Project.where("phase < 10", params[:phase])
   end
+  
+  def show
+   @project = Project.find(params[:id])
+  end
 
   def new
 		@project = Project.new

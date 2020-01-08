@@ -13,7 +13,7 @@
 	<tbody>
 		<% @projects.each do |project| %>
 			<tr>
-			<td><u><%= link_to project.id, { :action => 'edit', :id => project.id } %></u></td>	
+			<td><u><%= link_to project.id, { :action => 'show', :id => project.id } %></u></td>	
 			<td><%= project.name %></td>
 			<td><%= project.description %></td> 
 			<td><%= project.phase_as_text %></td>

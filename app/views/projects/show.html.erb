@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-sm-offset-4 text-left">
+      <% if @project.phase > 10 %>
+    	  <h1>Liidin tiedot</h1>
+      <% else %>
+        <h1>Myyntiprojektin tiedot</h1>
+      <% end %>
+      <h3>
+        <strong>Nimi :&nbsp; </strong><%= @project.name %>
+      </h3>
+      <p>
+        <strong>Tunniste nro :&nbsp; </strong><%= @project.id %>
+      </p>
+      <p>
+        <strong>Kuvaus :&nbsp; </strong><%= @project.description %>
+      </p>
+      <p>
+        <strong>Vaihe :&nbsp; </strong><%= @project.phase_as_text %>
+      </p>
+      <p>
+        <strong>Aikataulu :&nbsp; </strong><%= @project.schedule.strftime('%d-%m-%Y') %>
+      </p>
+      <p>
+        <strong>Myyntitavoite :&nbsp; </strong><%= @project.target_sales %>
+      </p>
+      <p>
+        <strong>Toteutunut myynti :&nbsp; </strong><%= @project.realized_sales %>
+      </p>
+       <p>
+        <strong>Vastuuhenkilö :&nbsp; </strong><%= @project.user.whole_name %>
+      </p>
+      <p>
+        <strong>Yritys  :&nbsp; </strong><%= @project.account.name %>
+      </p>
+      <p>
+        <strong>Yhteyshenkilö :&nbsp; </strong><%= @project.contact.whole_name %>
+      </p>
+      
+ 
+        <%= button_to 'Muokkaa', {:action => 'edit', :id => @project }, :method => :post, class: 'btn btn-green' %>
+        <br />
+        <% if @project.phase > 10 %> 
+          <%= button_to 'Takaisin', { :controller => :projects, :action => 'leads' }, :method => :get, class: 'btn btn-gray' %>
+        <% else %>
+          <%= button_to 'Takaisin', { :controller => :projects, :action => 'opportunities' }, :method => :get, class: 'btn btn-gray' %>
+        <% end %>
+
+      <br /><br /><br />
+		</div>
+	</div>
+</div>

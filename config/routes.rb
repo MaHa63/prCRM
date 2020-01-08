@@ -49,7 +49,7 @@ Rails.application.routes.draw do
   post  'projects/create'
   patch 'projects/update'
   get   'projects/show'
-  get   'projects/edit'
+  post   'projects/edit'
   delete   'projects/delete'
   get   'projects/update'
 
