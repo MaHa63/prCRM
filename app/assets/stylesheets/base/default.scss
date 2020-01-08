@@ -69,6 +69,19 @@ a:hover, a:active, a:link, a:visited {
   border: 1.5px solid #3aaa87 !important;
   }
 
+.btn-red {
+  color: #ffffff;
+  background-color: #ff4d4d;
+  border: 1.5px solid #ff4d4d !important;
+  }
+
+  .btn-red:hover {
+  color: #1a1a1a;
+  background-color: #ffffff;
+  border: 1.5px solid #ff4d4d !important;
+  }
+
+
 .datepicker.dropdown-menu {
   background-color:#FFF !important;
 }

@@ -27,7 +27,7 @@
 					<td>
 						<td>
 						
-							<%= button_to "Kontaktit", {:controller => 'contacts', :action => 'index_by_account'}, :params => { :account_id => account.id },  :method => :get, class: 'btn btn-gray btn-xs' %> 
+							<%= button_to "Kontaktit", {:controller => 'contacts', :action => 'index_by_account'}, :params => { :account_id => account.id },  :method => :get, class: 'btn btn-green btn-xs' %> 
 
 						</td>
 					</td>
@@ -36,5 +36,7 @@
 			</tbody>
 		</table>
 	<% end %>
-  <p><%= button_to "Uusi yritys", {:controller => 'accounts', :action => 'new'}, :method => :get , class: 'btn btn-gray' %></p>
+  <p><%= button_to "Uusi yritys", {:controller => 'accounts', :action => 'new'}, :method => :get , class: 'btn btn-green' %></p>
+  <br />
+  <br />
 </div>

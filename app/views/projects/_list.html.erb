@@ -22,11 +22,12 @@
 			<td><%= project.schedule_nil_out %></td>
 			<div>
 				<td>
-				<%= button_to "Poista", {:controller => :projects, :action => 'delete', :id => project.id }, :method => :delete, class: 'btn btn-gray btn-xs', data: { confirm: "Oletko varma tietueen poistamisesta ?"} %>
+				<%= button_to "Poista", {:controller => :projects, :action => 'delete', :id => project.id }, :method => :delete, class: 'btn btn-red btn-xs', data: { confirm: "Oletko varma tietueen poistamisesta ?"} %>
 				</td>
 			</div>
 
 			</tr>
 		<% end %>
+    <br /><br />
 	</tbody>
 </table>

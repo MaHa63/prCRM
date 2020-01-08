@@ -26,10 +26,10 @@
 					<td><%= contact.phone_nbr %></td>
 					<td><%= contact.account.name %></td>
 						<td>
-						<%= button_to "Muokkaa", {:action => 'edit', :id => contact.id} ,  :method => :post, class: 'btn btn-gray btn-xs' %> 
+						<%= button_to "Muokkaa", {:action => 'edit', :id => contact.id} ,  :method => :post, class: 'btn btn-green btn-xs' %> 
 						</td>
 						<td>
-						<%= button_to "Poista", {:controller => :contacts, :action => 'delete', :id => contact.id }, :method => :delete, class: 'btn btn-gray btn-xs', data: { confirm: "Oletko varma tietueen poistamisesta ?"} %>
+						<%= button_to "Poista", {:controller => :contacts, :action => 'delete', :id => contact.id }, :method => :delete, class: 'btn btn-red btn-xs', data: { confirm: "Oletko varma tietueen poistamisesta ?"} %>
 						</td>
 
 					</tr>
@@ -38,7 +38,7 @@
 		</table>
 	<% end %>
   	<!--<p><%= link_to "Uusi kontakti", {:action => 'new'}, :method => :get %></p> -->
-  	<%= button_to "Uusi kontakti", {:controller => :contacts, :action => 'new'}, :method => :get, class: 'btn btn-gray' %>
+  	<%= button_to "Uusi kontakti", {:controller => :contacts, :action => 'new'}, :method => :get, class: 'btn btn-green' %>
 
   	<br />
   	<br />
