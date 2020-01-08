@@ -1,4 +1,13 @@
 <div class="container">
+
+<div class="jumbotron text-center"  >
+    <h1>Tervetuloa tinyCRM ohjelmistoon</h1>
+    <p>Tämä on kotisivu Ruby on Rails -työkalulla toteutetusta tinyCRM asiakkuuden hallintaohjelmistosta</p>
+    <%= button_to "Rekisteröidy", {:controller => :registrations, :action => 'new'}, :method => :get, class: 'btn btn-green' %>
+ </div>
+
+
+  
   <div class="row">
     <div class="col-sm-4 col-sm-offset-4 text-center">
       <h3>Kirjaudu</h3>

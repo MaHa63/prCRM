@@ -63,7 +63,7 @@ a:hover, a:active, a:link, a:visited {
   border: 1.5px solid #3aaa87 !important;
   }
 
-  .btn-gray:hover {
+  .btn-green:hover {
   color: #1a1a1a;
   background-color: #ffffff;
   border: 1.5px solid #3aaa87 !important;
@@ -78,4 +78,9 @@ a:hover, a:active, a:link, a:visited {
     display: table-cell;
     text-align: center;
     vertical-align: middle;
+}
+
+/*---- Jumbotron --------*/
+.jumbotron {
+   background-color: #d9d9d9 !important; 
 }
