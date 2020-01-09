@@ -22,7 +22,8 @@ class TasksController < ApplicationController
 		if @task.save
 			redirect_to :action =>'index'
 		else
-			@tasks = Task.all
+      @users = User.all
+      @accounts = Account.all
 			render :action => 'new'
 		end
 	end

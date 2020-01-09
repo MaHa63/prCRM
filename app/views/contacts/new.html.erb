@@ -31,11 +31,10 @@
         <%= f.collection_select :account_id, Account.all, :id, 
 					:name, label: 'Yritys', prompt: "Valitse" %>			
 			 	
-        <%= f.submit 'Tallenna', class: 'btn login-button' %>	
+        <%= f.submit 'Tallenna', class: 'btn btn-mha' %>	
 			<% end %>
-
-			<%= link_to 'Takaisin', {:action => 'index'} %>
-
+      <br />
+      <%= button_to 'Takaisin', { :controller => :contacts, :action => 'index' }, :method => :get, class: 'btn btn-gray' %>
 		</div>
 	</div>
 </div>

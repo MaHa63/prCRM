@@ -28,7 +28,8 @@ class ProjectsController < ApplicationController
 		if @project.save
 			redirect_to :action =>'index'
 		else
-			@projects = Project.all
+			@user = User.all
+      @accounts = Account.all
 			render :action => 'new'
 		end
 	end

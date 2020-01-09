@@ -2,6 +2,8 @@ class Task < ApplicationRecord
   
   belongs_to :account
 	belongs_to :user
+  
+  validates :user_id, presence: { message:  "Vastuuhenkilö pakollinen tieto!" }
 
 
 	def reason_as_text
