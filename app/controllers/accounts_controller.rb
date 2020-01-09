@@ -33,6 +33,7 @@ class AccountsController < ApplicationController
 			redirect_to :action =>'index'
 		else
 			@users = User.all
+      flash.now[:alert] = "Tarkista että kaikki kentät ovat täytetty!"
 			render :action => 'new'
 		end
 	end

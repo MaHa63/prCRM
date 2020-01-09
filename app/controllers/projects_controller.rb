@@ -30,6 +30,7 @@ class ProjectsController < ApplicationController
 		else
 			@user = User.all
       @accounts = Account.all
+      flash.now[:alert] = "Tarkista että kaikki kentät ovat täytetty!"
 			render :action => 'new'
 		end
 	end
@@ -55,6 +56,7 @@ class ProjectsController < ApplicationController
 				redirect_to :action => 'opportunities', :id => @project
 			end
 		else
+      
 			render :action => 'edit'
 		end
 

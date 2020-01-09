@@ -24,6 +24,7 @@ class TasksController < ApplicationController
 		else
       @users = User.all
       @accounts = Account.all
+       flash.now[:alert] = "Tarkista että kaikki kentät ovat täytetty!"
 			render :action => 'new'
 		end
 	end
