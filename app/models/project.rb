@@ -1,7 +1,7 @@
 class Project < ApplicationRecord
   
   belongs_to :user
-	belongs_to :contact
+	belongs_to :contact 
 	belongs_to :account
 
 	def phase_as_text
@@ -31,7 +31,7 @@ class Project < ApplicationRecord
 	
 		"#{result}"  
   end
-
+  
   def schedule_nil_out
   	if schedule == nil 
   		result = ""
