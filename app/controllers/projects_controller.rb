@@ -69,8 +69,17 @@ class ProjectsController < ApplicationController
 	end
 
 	def delete
-		Project.find(params[:id]).destroy
-		redirect_to :action => 'opportunities'
+		@project = Project.find(params[:id])
+    if @project.destroy 
+       flash.now[:notice] = "Projekti poistettiin onnistuneesti."
+      if @project.phase > 10 
+				redirect_to({:action => 'leads', :id => @project}, notice: 'Liidi poistettiin onnistuneesti.')
+			else
+				redirect_to({:action => 'opportunities', :id => @project}, notice: 'Projekti poistettiin onnistuneesti.') 
+			end
+    else
+      redirect_to :action => 'opportunities', notice: "Projektin poisto epäonnistui!"  
+    end
 	end
 
 	def project_param

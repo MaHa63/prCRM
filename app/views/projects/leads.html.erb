@@ -3,11 +3,9 @@
   <br />
   <%= button_to "Myyntiprojektit", {:controller => :projects, :action => 'opportunities'}, :method => :get, class: 'btn btn-green' %>
 	<% if @projects.blank? %>
-		<h3>Järjestelmään ei ole talletettu myyntiprojekteja.</h3>
+		<h3>Järjestelmään ei ole talletettu liidejä.</h3>
 	<% else %>
 		<h3>Talletetut liidit</h3>
-		
-
 		<%= render 'list' %>
 	<% end %>
   	<!--<p><%= link_to "Uusi taski", {:action => 'new'}, :method => :get %></p> -->
