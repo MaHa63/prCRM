@@ -1,12 +1,11 @@
 <div class="container">
-  <br /><br />
+  <br />
   <%= button_to "Liidit", {:controller => :projects, :action => 'leads'}, :method => :get, class: 'btn btn-green' %>
 	<% if @projects.blank? %>
 		<h3>Järjestelmään ei ole talletettu myyntiprojekteja.</h3>
 	<% else %>
-		<h3>Talletetut myyntiprojektit</h3>
-		
-		<%= render 'list' %>
+		<h3>Talletetut myyntiprojektit</h3>	
+    <%= render 'list' %>
 	<% end %>
   	<!--<p><%= link_to "Uusi taski", {:action => 'new'}, :method => :get %></p> -->
   	<%= button_to "Uusi projekti", {:controller => :projects, :action => 'new'}, :method => :get, class: 'btn btn-green' %>
