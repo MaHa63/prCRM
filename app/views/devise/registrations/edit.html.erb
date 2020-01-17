@@ -46,10 +46,10 @@
 
         <h3>Poistetaanko tunnus ?</h3>
 
-        <%= button_to "Poista",  registration_path(resource_name), data: { confirm: "Oletko varma?" },class: 'btn btn-green',  method: :delete %>
-         <br /><br />
-        <%= link_to "Takaisin", :back %>
-
+        <%= button_to "Poista",  registration_path(resource_name), data: { confirm: "Oletko varma?" },class: 'btn btn-red',  method: :delete %>
+         <br />
+        <%= link_to "Takaisin", :back, class: 'btn btn-gray' %>
+        <br /><br /><br /><br />
 
     </div>
   </div>
