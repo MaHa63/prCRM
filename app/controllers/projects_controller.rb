@@ -26,7 +26,11 @@ class ProjectsController < ApplicationController
 		@project = Project.new(project_params)
 
 		if @project.save
-			redirect_to :action =>'index'
+			if @project.phase > 10 
+				redirect_to :action => 'leads', :id => @project
+			else
+				redirect_to :action => 'opportunities', :id => @project
+			end
 		else
 			@user = User.all
       @accounts = Account.all
