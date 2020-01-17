@@ -41,5 +41,4 @@ class Project < ApplicationRecord
   	"#{result}"
   end
   
-  
 end

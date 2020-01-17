@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  
+  before_action :authenticate_user!
   def index
   	@projects = Project.all
   end
@@ -68,7 +70,7 @@ class ProjectsController < ApplicationController
 
 	def delete
 		Project.find(params[:id]).destroy
-		redirect_to :action => 'index'
+		redirect_to :action => 'opportunities'
 	end
 
 	def project_param
